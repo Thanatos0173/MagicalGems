@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " D ",
+        "GNG",
+        "OOO"
+    ],
+    "key": {
+        "D": {
+            "item": "minecraft:diamond"
+        },
+        "G": {
+            "item": "magicalgems:gem"
+        },
+        "N": {
+            "item": "minecraft:nether_star"
+        },
+        "O": {
+            "item": "minecraft:obsidian"
+        }
+    },
+    "result": {
+        "item": "magicalgems:alchemy_table",
+        "count": 1
+    }
+}

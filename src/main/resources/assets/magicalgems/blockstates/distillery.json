@@ -1,0 +1,19 @@
+{
+  "variants":{
+    "facing=east" : {
+      "model": "magicalgems:block/distillery",
+      "y": 90
+    },
+    "facing=north" : {
+      "model": "magicalgems:block/distillery"
+    },
+    "facing=south" : {
+      "model": "magicalgems:block/distillery",
+      "y": 180
+    },
+    "facing=west" : {
+      "model": "magicalgems:block/distillery",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "magicalgems:nether_star_shard"
+        },
+        {
+            "item": "magicalgems:nether_star_shard"
+        },
+        {
+            "item": "magicalgems:nether_star_shard"
+        },
+        {
+            "item": "magicalgems:nether_star_shard"
+        }
+    ],
+    "result": {
+        "item": "minecraft:nether_star",
+        "count": 1
+    }
+}

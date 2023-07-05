@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "magicalgems:blocks/lightning_container_down",
+    "up": "magicalgems:blocks/lightning_container_top",
+    "north": "magicalgems:blocks/lightning_container_side",
+    "east": "magicalgems:blocks/lightning_container_side",
+    "south": "magicalgems:blocks/lightning_container_side",
+    "west": "magicalgems:blockslightning_container_side",
+    "particle": "magicalgems:blocks/lightning_container_down"
+  }
+}

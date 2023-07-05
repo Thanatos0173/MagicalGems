@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "down": "magicalgems:block/alchemy_table_down",
+    "up": "magicalgems:block/alchemy_table_top",
+    "north": "magicalgems:block/alchemy_table_side",
+    "east": "magicalgems:block/alchemy_table_side",
+    "south": "magicalgems:block/alchemy_table_side",
+    "west": "magicalgems:block/alchemy_table_side",
+    "particle": "magicalgems:block/alchemy_table_down"
+  }
+}

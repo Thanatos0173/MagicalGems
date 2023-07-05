@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " ##",
+    " iM",
+    "ONO"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:iron_bars"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "M": {
+      "item": "magicalgems:empty_vial"
+    },
+    "O": {
+      "item": "minecraft:obsidian"
+    },
+    "N": {
+      "item": "magicalgems:nether_star_shard"
+    }
+  },
+  "result": {
+    "item": "magicalgems:distillery",
+    "count": 1
+  }
+}
