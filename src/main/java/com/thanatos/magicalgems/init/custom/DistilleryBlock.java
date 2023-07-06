@@ -51,32 +51,60 @@ public class DistilleryBlock extends HorizontalBlock {
         return this.getDefaultState().with(HORIZONTAL_FACING, context.getPlacementHorizontalFacing().getOpposite());
     }
 
-    private static final VoxelShape SHAPE_E = Stream.of(
-            Block.makeCuboidShape(6, 4, 6, 10, 7, 10),
-            Block.makeCuboidShape(5, 0, 5, 11, 4, 11),
-            Block.makeCuboidShape(7, 7, 7, 14, 8, 9),
-            Block.makeCuboidShape(13, 5, 7.5, 14, 7, 8.5)
+    private static final VoxelShape SHAPE_W = Stream.of(
+            Block.makeCuboidShape(0, 0, 0, 16, 2, 16),
+            Block.makeCuboidShape(1, 2, 1, 15, 8, 15),
+            Block.makeCuboidShape(2, 8, 2, 14, 14, 14),
+            Block.makeCuboidShape(-4, 14, 6, 9, 16, 10),
+            Block.makeCuboidShape(-6, 11, 6, -4, 14, 10),
+            Block.makeCuboidShape(-6, 9, 7, -4, 11, 9),
+            Block.makeCuboidShape(-5.5, 8, 7.5, -4.5, 9, 8.5),
+            Block.makeCuboidShape(9, 14, 6, 11, 15, 10),
+            Block.makeCuboidShape(-5, 15, 6, -4, 16, 10),
+            Block.makeCuboidShape(-6, 14, 6, -4, 15, 10),
+            Block.makeCuboidShape(9, 15, 6, 10, 16, 10)
     ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR)).get();
 
     private static final VoxelShape SHAPE_S = Stream.of(
-            Block.makeCuboidShape(6, 4, 6, 10, 7, 10),
-            Block.makeCuboidShape(5, 0, 5, 11, 4, 11),
-            Block.makeCuboidShape(7, 7, 7, 9, 8, 14),
-            Block.makeCuboidShape(7.5, 5, 13, 8.5, 7, 14)
+            Block.makeCuboidShape(0, 0, 0, 16, 2, 16),
+            Block.makeCuboidShape(1, 2, 1, 15, 8, 15),
+            Block.makeCuboidShape(2, 8, 2, 14, 14, 14),
+            Block.makeCuboidShape(6, 14, 7, 10, 16, 20),
+            Block.makeCuboidShape(6, 11, 20, 10, 14, 22),
+            Block.makeCuboidShape(7, 9, 20, 9, 11, 22),
+            Block.makeCuboidShape(7.5, 8, 20.5, 8.5, 9, 21.5),
+            Block.makeCuboidShape(6, 14, 5, 10, 15, 7),
+            Block.makeCuboidShape(6, 15, 20, 10, 16, 21),
+            Block.makeCuboidShape(6, 14, 20, 10, 15, 22),
+            Block.makeCuboidShape(6, 15, 6, 10, 16, 7)
     ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR)).get();
 
-    private static final VoxelShape SHAPE_W = Stream.of(
-            Block.makeCuboidShape(6, 4, 6, 10, 7, 10),
-            Block.makeCuboidShape(5, 0, 5, 11, 4, 11),
-            Block.makeCuboidShape(2, 7, 7, 9, 8, 9),
-            Block.makeCuboidShape(2, 5, 7.5, 3, 7, 8.5)
+    private static final VoxelShape SHAPE_E = Stream.of(
+            Block.makeCuboidShape(0, 0, 0, 16, 2, 16),
+            Block.makeCuboidShape(1, 2, 1, 15, 8, 15),
+            Block.makeCuboidShape(2, 8, 2, 14, 14, 14),
+            Block.makeCuboidShape(7, 14, 6, 20, 16, 10),
+            Block.makeCuboidShape(20, 11, 6, 22, 14, 10),
+            Block.makeCuboidShape(20, 9, 7, 22, 11, 9),
+            Block.makeCuboidShape(20.5, 8, 7.5, 21.5, 9, 8.5),
+            Block.makeCuboidShape(5, 14, 6, 7, 15, 10),
+            Block.makeCuboidShape(20, 15, 6, 21, 16, 10),
+            Block.makeCuboidShape(20, 14, 6, 22, 15, 10),
+            Block.makeCuboidShape(6, 15, 6, 7, 16, 10)
     ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR)).get();
 
     private static final VoxelShape SHAPE_N = Stream.of(
-            Block.makeCuboidShape(6, 4, 6, 10, 7, 10),
-            Block.makeCuboidShape(5, 0, 5, 11, 4, 11),
-            Block.makeCuboidShape(7, 7, 2, 9, 8, 9),
-            Block.makeCuboidShape(7.5, 5, 2, 8.5, 7, 3)
+            Block.makeCuboidShape(0, 0, 0, 16, 2, 16),
+            Block.makeCuboidShape(1, 2, 1, 15, 8, 15),
+            Block.makeCuboidShape(2, 8, 2, 14, 14, 14),
+            Block.makeCuboidShape(6, 14, -4, 10, 16, 9),
+            Block.makeCuboidShape(6, 11, -6, 10, 14, -4),
+            Block.makeCuboidShape(7, 9, -6, 9, 11, -4),
+            Block.makeCuboidShape(7.5, 8, -5.5, 8.5, 9, -4.5),
+            Block.makeCuboidShape(6, 14, 9, 10, 15, 11),
+            Block.makeCuboidShape(6, 15, -5, 10, 16, -4),
+            Block.makeCuboidShape(6, 14, -6, 10, 15, -4),
+            Block.makeCuboidShape(6, 15, 9, 10, 16, 10)
     ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR)).get();
 
     @Override
