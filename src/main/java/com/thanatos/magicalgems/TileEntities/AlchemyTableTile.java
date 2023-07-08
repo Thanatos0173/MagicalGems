@@ -42,7 +42,7 @@ public class AlchemyTableTile extends TileEntity implements ITickableTileEntity 
     private String[] potionList = {"item.minecraft.potion.effect.poison","item.minecraft.potion.effect.slowness","item.minecraft.potion.effect.strength",
             "item.minecraft.potion.effect.fire_resistance","item.minecraft.potion.effect.slow_falling","item.minecraft.potion.effect.leaping",
             "item.minecraft.potion.effect.regeneration", "item.minecraft.potion.effect.water_breathing",
-            "item.minecraft.potion.effect.swiftness","item.minecraft.potion.effect.night_vision","item.magicalgems.haste_essence","item.magicalgems.dolphins_grace_essence","item.magicalgems.health_boost_essence"};
+            "item.minecraft.potion.effect.swiftness","item.minecraft.potion.effect.night_vision","item.magicalgems.haste_essence.json","item.magicalgems.dolphins_grace_essence","item.magicalgems.health_boost_essence"};
 
     public AlchemyTableTile() {
         this(ModTileEntities.ALCHEMY_TABLE_TILE.get());

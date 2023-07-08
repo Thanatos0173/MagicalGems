@@ -1,0 +1,19 @@
+{
+  "type":"magicalgems:distillery",
+  "potion": "minecraft:regeneration",
+  "ingredients": [
+    {
+      "item": "magicalgems:upgraded_blaze_powder"
+    },
+    {
+      "item": "minecraft:heart_of_the_sea"
+    },
+    {
+      "item": "magicalgems:empty_vial"
+    }
+  ],
+  "output": {
+    "item": "magicalgems:health_boost_essence"
+  }
+}
+

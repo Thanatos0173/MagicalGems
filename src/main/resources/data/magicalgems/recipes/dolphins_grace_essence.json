@@ -1,0 +1,19 @@
+{
+  "type":"magicalgems:distillery",
+  "potion": "minecraft:swiftness",
+  "ingredients": [
+    {
+      "item": "magicalgems:upgraded_blaze_powder"
+    },
+    {
+      "item": "magicalgems:dolphins_scute"
+    },
+    {
+      "item": "magicalgems:empty_vial"
+    }
+  ],
+  "output": {
+    "item": "magicalgems:dolphins_grace_essence"
+  }
+}
+

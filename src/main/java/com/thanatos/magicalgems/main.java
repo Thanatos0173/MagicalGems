@@ -3,6 +3,7 @@ package com.thanatos.magicalgems;
 import com.thanatos.magicalgems.Enchantments.EnchantementInit;
 import com.thanatos.magicalgems.TileEntities.ModTileEntities;
 import com.thanatos.magicalgems.container.ModContainer;
+import com.thanatos.magicalgems.data.recipes.ModRecipeTypes;
 import com.thanatos.magicalgems.init.ModBlocks;
 import com.thanatos.magicalgems.init.ModItems;
 import com.thanatos.magicalgems.init.ModOreGeneration;
@@ -42,6 +43,7 @@ public class main {
         ModBlocks.BLOCKS.register(bus);
         ModTileEntities.register(bus);
         ModContainer.register(bus);
+        ModRecipeTypes.register(bus);
 
 
     }

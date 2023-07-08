@@ -1,0 +1,19 @@
+{
+  "type":"magicalgems:distillery",
+  "potion": "minecraft:swiftness",
+  "ingredients": [
+    {
+      "item": "magicalgems:upgraded_blaze_powder"
+    },
+    {
+      "item": "minecraft:diamond_pickaxe"
+    },
+    {
+      "item": "magicalgems:empty_vial"
+    }
+  ],
+  "output": {
+    "item": "magicalgems:haste_essence"
+  }
+}
+

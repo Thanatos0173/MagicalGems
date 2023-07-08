@@ -125,14 +125,11 @@ public class DistilleryBlock extends HorizontalBlock {
 
         if(!worldIn.isRemote()) {
             TileEntity tileEntity = worldIn.getTileEntity(pos);
-            if(!player.isCrouching()) {
-                if(tileEntity instanceof DistilleryTile) {
-                    INamedContainerProvider containerProvider = createContainerProvider(worldIn, pos);
-                    NetworkHooks.openGui(((ServerPlayerEntity)player), containerProvider, tileEntity.getPos());
-
-                } else {
-                    throw new IllegalStateException("Our Container provider is missing!");
-                }
+            if(tileEntity instanceof DistilleryTile) {
+                INamedContainerProvider containerProvider = createContainerProvider(worldIn, pos);
+                NetworkHooks.openGui(((ServerPlayerEntity)player), containerProvider, tileEntity.getPos());
+             } else {
+                throw new IllegalStateException("Our Container provider is missing!");
             }
         }
         return ActionResultType.SUCCESS;
