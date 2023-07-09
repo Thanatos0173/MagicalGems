@@ -1,4 +1,4 @@
-package com.thanatos.magicalgems.data.recipes;
+package com.thanatos.magicalgems.data.recipes.distillery;
 
 import com.thanatos.magicalgems.main;
 import net.minecraft.inventory.IInventory;

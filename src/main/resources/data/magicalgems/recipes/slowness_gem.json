@@ -1,0 +1,16 @@
+{
+  "type":"magicalgems:alchemy_table",
+  "potion": "minecraft:slowness",
+  "ingredients": [
+    {
+      "item": "magicalgems:upgraded_blaze_powder"
+    },
+    {
+      "item": "magicalgems:gem"
+    }
+  ],
+  "output": {
+    "item": "magicalgems:slowness_gem"
+  }
+}
+

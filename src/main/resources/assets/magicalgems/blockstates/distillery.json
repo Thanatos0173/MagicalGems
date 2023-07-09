@@ -2,7 +2,7 @@
   "variants":{
     "facing=east" : {
       "model": "magicalgems:block/distillery",
-      "y": 27090
+      "y": 90
     },
     "facing=north" : {
       "model": "magicalgems:block/distillery"

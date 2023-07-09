@@ -1,0 +1,16 @@
+{
+  "type":"magicalgems:alchemy_table",
+  "potion": "minecraft:night_vision",
+  "ingredients": [
+    {
+      "item": "magicalgems:upgraded_blaze_powder"
+    },
+    {
+      "item": "magicalgems:gem"
+    }
+  ],
+  "output": {
+    "item": "magicalgems:night_vision_gem"
+  }
+}
+

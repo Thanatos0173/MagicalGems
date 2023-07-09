@@ -1,13 +1,12 @@
-package com.thanatos.magicalgems.data.recipes;
+package com.thanatos.magicalgems.data.recipes.distillery;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.thanatos.magicalgems.data.recipes.ModRecipeTypes;
 import com.thanatos.magicalgems.init.ModBlocks;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.item.PotionItem;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.item.crafting.Ingredient;
@@ -126,8 +125,7 @@ public class DistilleryRecipe implements IDistilleryRecipe{
 
             ItemStack output = buffer.readItemStack();
 
-            int id = buffer.readInt();
-            Effect effect = Effect.get(id);
+
 
             return new DistilleryRecipe(recipeId, output,
                     inputs,null);

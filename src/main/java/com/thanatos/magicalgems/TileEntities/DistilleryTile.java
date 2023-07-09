@@ -1,18 +1,14 @@
 package com.thanatos.magicalgems.TileEntities;
 
 import com.thanatos.magicalgems.container.DistilleryContainer;
-import com.thanatos.magicalgems.data.recipes.DistilleryRecipe;
+import com.thanatos.magicalgems.data.recipes.distillery.DistilleryRecipe;
 import com.thanatos.magicalgems.data.recipes.ModRecipeTypes;
-import com.thanatos.magicalgems.init.ModItems;
 import net.minecraft.block.BlockState;
 import net.minecraft.inventory.Inventory;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SUpdateTileEntityPacket;
-import net.minecraft.potion.Effects;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;

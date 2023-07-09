@@ -1,0 +1,16 @@
+{
+  "type":"magicalgems:alchemy_table",
+  "potion": "minecraft:fire_resistance",
+  "ingredients": [
+    {
+      "item": "magicalgems:upgraded_blaze_powder"
+    },
+    {
+      "item": "magicalgems:gem"
+    }
+  ],
+  "output": {
+    "item": "magicalgems:fire_resistance_gem"
+  }
+}
+

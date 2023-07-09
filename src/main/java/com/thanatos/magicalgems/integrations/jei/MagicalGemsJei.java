@@ -1,6 +1,7 @@
 package com.thanatos.magicalgems.integrations.jei;
 
-import com.thanatos.magicalgems.data.recipes.DistilleryRecipe;
+import com.thanatos.magicalgems.data.recipes.alchemy_table.AlchemyTableRecipe;
+import com.thanatos.magicalgems.data.recipes.distillery.DistilleryRecipe;
 import com.thanatos.magicalgems.data.recipes.ModRecipeTypes;
 import com.thanatos.magicalgems.main;
 import mezz.jei.api.IModPlugin;
@@ -24,7 +25,9 @@ public class MagicalGemsJei implements IModPlugin {
     @Override
     public void registerCategories(IRecipeCategoryRegistration registration) {
         registration.addRecipeCategories(
-                new DistilleryRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
+                new DistilleryRecipeCategory(registration.getJeiHelpers().getGuiHelper()),
+                new AlchemyTableRecipeCategory(registration.getJeiHelpers().getGuiHelper())
+        );
     }
 
     @Override
@@ -33,5 +36,8 @@ public class MagicalGemsJei implements IModPlugin {
         registration.addRecipes(rm.getRecipesForType(ModRecipeTypes.DISTILLERY_RECIPE).stream()
                         .filter(r -> r instanceof DistilleryRecipe).collect(Collectors.toList()),
                 DistilleryRecipeCategory.UID);
+        registration.addRecipes(rm.getRecipesForType(ModRecipeTypes.ALCHEMY_TABLE_RECIPE).stream()
+                        .filter(r -> r instanceof AlchemyTableRecipe).collect(Collectors.toList()),
+                AlchemyTableRecipeCategory.UID);
     }
 }

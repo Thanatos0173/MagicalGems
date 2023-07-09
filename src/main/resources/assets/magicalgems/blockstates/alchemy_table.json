@@ -1,7 +1,20 @@
 {
   "variants":{
-    "":{
-      "model":"magicalgems:block/alchemy_table"
+    "facing=east" : {
+      "model": "magicalgems:block/alchemy_table",
+      "y": 27090
+    },
+    "facing=north" : {
+      "model": "magicalgems:block/alchemy_table"
+    },
+    "facing=south" : {
+      "model": "magicalgems:block/alchemy_table",
+      "y": 180
+    },
+    "facing=west" : {
+      "model": "magicalgems:block/alchemy_table",
+      "y": 270
+
     }
   }
 }

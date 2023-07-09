@@ -30,11 +30,15 @@ public class ModBlocks {
                     AbstractBlock.Properties.create(Material.IRON).hardnessAndResistance(3f, 15f).harvestTool(ToolType.PICKAXE).harvestLevel(3)));
 
     public static final RegistryObject<Block> ALCHEMY_TABLE = createBlock("alchemy_table",
-            () -> new AlchemyTableBlock(AbstractBlock.Properties.create(Material.IRON).hardnessAndResistance(3f, 15f).harvestTool(ToolType.PICKAXE).harvestLevel(0)));
+            () -> new AlchemyTableBlock(AbstractBlock.Properties.create(Material.IRON)
+                    .hardnessAndResistance(3f, 15f)
+                    .harvestTool(ToolType.PICKAXE).harvestLevel(0).notSolid()));
 
 
     public static final RegistryObject<Block> DISTILLERY = createBlock("distillery",
-            () -> new DistilleryBlock(AbstractBlock.Properties.create(Material.IRON).hardnessAndResistance(3f, 15f).harvestTool(ToolType.PICKAXE).harvestLevel(0).notSolid()));
+            () -> new DistilleryBlock(AbstractBlock.Properties.create(Material.IRON)
+                    .hardnessAndResistance(3f, 15f)
+                    .harvestTool(ToolType.PICKAXE).harvestLevel(0).notSolid()));
 
     public static RegistryObject<Block> createBlock(String name, Supplier<? extends Block> supplier)
     {

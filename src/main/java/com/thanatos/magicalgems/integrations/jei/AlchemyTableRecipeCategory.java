@@ -1,6 +1,7 @@
 package com.thanatos.magicalgems.integrations.jei;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
+import com.thanatos.magicalgems.data.recipes.alchemy_table.AlchemyTableRecipe;
 import com.thanatos.magicalgems.data.recipes.distillery.DistilleryRecipe;
 import com.thanatos.magicalgems.init.ModBlocks;
 import com.thanatos.magicalgems.main;
@@ -13,23 +14,23 @@ import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.potion.*;
+import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.ResourceLocation;
 
-public class DistilleryRecipeCategory implements IRecipeCategory<DistilleryRecipe> {
+public class AlchemyTableRecipeCategory implements IRecipeCategory<AlchemyTableRecipe> {
 
-    public final static ResourceLocation UID = new ResourceLocation(main.MODID, "distillery");
+    public final static ResourceLocation UID = new ResourceLocation(main.MODID, "alchemy_table");
     public final static ResourceLocation TEXTURE =
-            new ResourceLocation(main.MODID, "textures/gui/distillery_gui_jei.png");
+            new ResourceLocation(main.MODID, "textures/gui/alchemy_table_gui.png");
 
     private final IDrawable background;
     private final IDrawable icon;
     private final IDrawable arrow;
 
-    public DistilleryRecipeCategory(IGuiHelper helper) {
+    public AlchemyTableRecipeCategory(IGuiHelper helper) {
         this.background = helper.createDrawable(TEXTURE, 4, 4, 168, 77);
-        this.icon = helper.createDrawableIngredient(new ItemStack(ModBlocks.DISTILLERY.get()));
-        this.arrow = helper.drawableBuilder(TEXTURE,176,1,5,21).
+        this.icon = helper.createDrawableIngredient(new ItemStack(ModBlocks.ALCHEMY_TABLE.get()));
+        this.arrow = helper.drawableBuilder(TEXTURE,177,1,7,19).
                 buildAnimated(100, IDrawableAnimated.StartDirection.TOP,false);
 
     }
@@ -40,13 +41,13 @@ public class DistilleryRecipeCategory implements IRecipeCategory<DistilleryRecip
     }
 
     @Override
-    public Class<? extends DistilleryRecipe> getRecipeClass() {
-        return DistilleryRecipe.class;
+    public Class<? extends AlchemyTableRecipe> getRecipeClass() {
+        return AlchemyTableRecipe.class;
     }
 
     @Override
     public String getTitle() {
-        return ModBlocks.DISTILLERY.get().getTranslatedName().getString();
+        return ModBlocks.ALCHEMY_TABLE.get().getTranslatedName().getString();
     }
 
     @Override
@@ -60,27 +61,27 @@ public class DistilleryRecipeCategory implements IRecipeCategory<DistilleryRecip
     }
 
     @Override
-    public void setIngredients(DistilleryRecipe recipe, IIngredients ingredients) {
+    public void setIngredients(AlchemyTableRecipe recipe, IIngredients ingredients) {
         ingredients.setInputIngredients(recipe.getIngredients());
         ingredients.setOutput(VanillaTypes.ITEM, recipe.getRecipeOutput());
     }
 
     @Override
-    public void setRecipe(IRecipeLayout recipeLayout, DistilleryRecipe recipe, IIngredients ingredients) {
+    public void setRecipe(IRecipeLayout recipeLayout, AlchemyTableRecipe recipe, IIngredients ingredients) {
         recipeLayout.getItemStacks().init(0, true, 12, 12);
-        recipeLayout.getItemStacks().init(1, true, 74, 12);
-        recipeLayout.getItemStacks().init(2, true, 74, 53);
-        recipeLayout.getItemStacks().init(3,true,104,12);
-        recipeLayout.getItemStacks().init(4,false,137,29);
-        ItemStack potion = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTION), recipe.getPotion());
-        recipeLayout.getItemStacks().set(3,potion);
+        recipeLayout.getItemStacks().init(1, true, 116, 11);
+        recipeLayout.getItemStacks().init(2, true, 74, 12);
+        recipeLayout.getItemStacks().init(3, false, 74, 53);
+        ItemStack potionSlot = recipe.getPotion() == null ? recipe.getPotionSlot() : PotionUtils.addPotionToItemStack(new ItemStack(Items.POTION), recipe.getPotion());
         recipeLayout.getItemStacks().set(ingredients);
-        recipeLayout.getItemStacks().set(4,recipe.getRecipeOutput());
+        recipeLayout.getItemStacks().set(2,potionSlot);
+        recipeLayout.getItemStacks().set(3,recipe.getRecipeOutput());
+
     }
 
     @Override
-    public void draw(DistilleryRecipe recipe, MatrixStack matrixStack, double mouseX, double mouseY) {
-        this.arrow.draw(matrixStack,86,31);
+    public void draw(AlchemyTableRecipe recipe, MatrixStack matrixStack, double mouseX, double mouseY) {
+        this.arrow.draw(matrixStack,94,33);
     }
 
 

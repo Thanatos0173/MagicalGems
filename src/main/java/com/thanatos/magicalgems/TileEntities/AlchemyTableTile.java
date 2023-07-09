@@ -1,9 +1,13 @@
 package com.thanatos.magicalgems.TileEntities;
 
 import com.thanatos.magicalgems.container.AlchemyTableContainer;
+import com.thanatos.magicalgems.data.recipes.ModRecipeTypes;
+import com.thanatos.magicalgems.data.recipes.alchemy_table.AlchemyTableRecipe;
+import com.thanatos.magicalgems.data.recipes.distillery.DistilleryRecipe;
 import com.thanatos.magicalgems.init.ModItems;
 import com.thanatos.magicalgems.main;
 import net.minecraft.block.BlockState;
+import net.minecraft.inventory.Inventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -25,6 +29,7 @@ import net.minecraftforge.items.ItemStackHandler;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.Optional;
 
 public class AlchemyTableTile extends TileEntity implements ITickableTileEntity {
     private final ItemStackHandler itemHandler = createHandler();
@@ -164,27 +169,41 @@ public class AlchemyTableTile extends TileEntity implements ITickableTileEntity 
         }
 
     }
-
-    @Override
-    public void tick() {
-        if(allSlotsAreNotEmpty() && (this.itemHandler.getStackInSlot(3).getCount() == 0 || itemHandler.getStackInSlot(1).getTranslationKey().equalsIgnoreCase(firstPotion))) {
-            if(this.itemHandler.getStackInSlot(3).getCount() == 0) firstPotion = itemHandler.getStackInSlot(1).getTranslationKey();
-            if (ticking > 20) {
-                this.ticking = 0;
-                this.FE++;
-                this.resultSec ++;
-                if(((FE % 74) == 0) && (this.itemHandler.getStackInSlot(0).getCount() > 0)) this.itemHandler.getStackInSlot(0).shrink(1);
-                if(Math.round(resultSec/19) >= 1){
-                    this.resultSec = 0;
-                    removeOfSlotOneAndTwo();
-                    this.itemHandler.insertItem(3, new ItemStack(generateGem(firstPotion),1), false);
-                }
-                assert world != null;
-                world.notifyBlockUpdate(getPos(), getBlockState(), getBlockState(), Constants.BlockFlags.BLOCK_UPDATE);
-                this.markDirty();
-            }
-            else ticking++;
+   @Override
+   public void tick() {
+        Inventory inv = new Inventory(itemHandler.getSlots());
+        for (int i = 0; i < itemHandler.getSlots(); i++) {
+            inv.setInventorySlotContents(i, itemHandler.getStackInSlot(i));
         }
+
+        Optional<AlchemyTableRecipe> recipe = world.getRecipeManager()
+                .getRecipe(ModRecipeTypes.ALCHEMY_TABLE_RECIPE, inv, world);
+
+        recipe.ifPresent(iRecipe -> {
+
+            ItemStack output = iRecipe.getRecipeOutput();
+            if (this.itemHandler.getStackInSlot(3).getCount() == 0 || itemHandler.getStackInSlot(1).getTranslationKey().equalsIgnoreCase(firstPotion)) {
+                if (this.itemHandler.getStackInSlot(3).getCount() == 0)
+                    firstPotion = itemHandler.getStackInSlot(1).getTranslationKey();
+                if (ticking > 20) {
+                    this.ticking = 0;
+                    this.FE++;
+                    this.resultSec++;
+                    if (((FE % 74) == 0) && (this.itemHandler.getStackInSlot(0).getCount() > 0))
+                        this.itemHandler.getStackInSlot(0).shrink(1);
+                    if (Math.round(resultSec / 19) >= 1) {
+                        this.resultSec = 0;
+                        removeOfSlotOneAndTwo();
+                        this.itemHandler.insertItem(3, output, false);
+                    }
+                    assert world != null;
+                    world.notifyBlockUpdate(getPos(), getBlockState(), getBlockState(), Constants.BlockFlags.BLOCK_UPDATE);
+                    this.markDirty();
+                } else ticking++;
+            }
+            this.markDirty();
+        });
+
         if(!isSlotNotEmpty(0) && FE != 0) {
             FE = 0;
             assert world != null;
@@ -197,7 +216,8 @@ public class AlchemyTableTile extends TileEntity implements ITickableTileEntity 
             world.notifyBlockUpdate(getPos(), getBlockState(), getBlockState(), Constants.BlockFlags.BLOCK_UPDATE);
             this.markDirty();
         }
-    }
+   }
+
 
     public void addSlotContentToArray(List<ItemStack> arrayList){
         for(int i = 0; i <= 3; i++) arrayList.add(itemHandler.getStackInSlot(i));

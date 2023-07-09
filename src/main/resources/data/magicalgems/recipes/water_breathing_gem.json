@@ -1,0 +1,16 @@
+{
+  "type":"magicalgems:alchemy_table",
+  "potion": "minecraft:water_breathing",
+  "ingredients": [
+    {
+      "item": "magicalgems:upgraded_blaze_powder"
+    },
+    {
+      "item": "magicalgems:gem"
+    }
+  ],
+  "output": {
+    "item": "magicalgems:water_breathing_gem"
+  }
+}
+

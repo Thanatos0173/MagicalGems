@@ -1,0 +1,16 @@
+{
+  "type":"magicalgems:alchemy_table",
+  "potion": "minecraft:leaping",
+  "ingredients": [
+    {
+      "item": "magicalgems:upgraded_blaze_powder"
+    },
+    {
+      "item": "magicalgems:gem"
+    }
+  ],
+  "output": {
+    "item": "magicalgems:jump_boost_gem"
+  }
+}
+
